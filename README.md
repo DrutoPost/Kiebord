@@ -1,8 +1,7 @@
-# Kiebord (Borno Community Edition)
+# Kiebord (DrutoPost Edition)
 <p align="center">
 <img width="128" height="128" alt="Kiebord" src="https://github.com/user-attachments/assets/346d3099-7f42-462a-931c-959a216ebccc" />
 </p>
-
 
 <table>
   <tr>
@@ -18,21 +17,23 @@
 [![Kotlin](https://img.shields.io/badge/UI-Jetpack%20Compose-purple)](https://developer.android.com/jetpack/compose)
 [![License](https://img.shields.io/badge/License-GPL%203.0-green.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-A free, open-source input method editor (IME) for Android built with Jetpack Compose and a native Rust engine.
+A high-performance, open-source input method editor (IME) for Android built with Jetpack Compose and a native Rust engine, maintained and remastered by **DrutoPost**.
 
 ---
 
-## Overview
+## Highlights & Enhancements
 
-Kiebord is the result of over 6 years of development on Borno Keyboard, heavily relying on its foundational transliteration architecture while introducing improved gesture typing, spatial touch modeling, and optimized runtime performance.
-
-The codebase represents an extensive modernization from legacy Java and C++ into modern Kotlin, Jetpack Compose, and a pure Rust core (`kiebord-engine`), with every migration step manually audited, refined, and verified.
+* **Language-Specific Typefaces**:
+  * **Bangla Mode**: Typeset using the bespoke **Bornomala** font for clear glyph rendering and authentic script ergonomics.
+  * **Arabic Mode**: Typeset using the elegant **Scheherazade** font with dedicated Harakat and diacritics support.
+  * **English / Symbols**: Crisp typography powered by the standard keyboard font family.
+* **Streamlined Bottom Row**: Removed the globe key beside the spacebar across all layout configurations to grant an expanded, spacious spacebar for maximum typing comfort and ergonomic thumb gestures.
+* **Minimalist & Distraction-Free Settings**: Streamlined preference experience focusing purely on typing customization, keyboard layouts, gestures, and theme aesthetics.
+* **Production-Ready Release Workflow**: Automated release pipeline with pre-configured signing support and demo keystore credentials for seamless APK generation.
 
 ---
 
 ## Features
-
-Kiebord comes with the essential features you need for everyday typing, without bloat or complicated configuration menus. Additional capabilities will be implemented gradually.
 
 ### Supported Layouts
 
@@ -45,17 +46,16 @@ Kiebord comes with the essential features you need for everyday typing, without 
 *Custom layouts can also be added by placing JSON layout files in `assets/layouts/`.*
 
 ### Input & Editing
-* **Gesture Typing**: Swipe-to-type support across supported layouts.
-* **Next-Word Predictions**: On-device candidate completions and next-word suggestions.
-* **Spacebar & Backspace Gestures**: Slide across the spacebar to navigate the cursor; slide left from the backspace key to quickly erase words.
-* **Clipboard Manager**: History of copied text with pin/unpin support.
+* **Gesture Typing**: Glide-to-type capability across supported layouts.
+* **Smart Predictions**: On-device candidate completions and next-word suggestions.
+* **Spacebar Trackpad & Delete Gestures**: Slide across the full-width spacebar to navigate the cursor; slide left from the backspace key to swiftly erase words.
+* **Sandboxed Clipboard**: In-memory clip manager with pin/unpin support and auto-expiration options.
 * **Text Editing Panel**: Dedicated directional arrows, text selection handles, copy, cut, paste, undo, and redo.
-* **Emoji Picker**: Built-in emoji panel with search (WIP) and category tabs.
+* **Emoji Picker**: Integrated emoji panel with search and category navigation.
 * **Voice Typing**: Direct speech-to-text input via the system voice recognizer.
 * **One-Handed Mode & Resizing**: Toggleable left/right one-handed modes and adjustable keyboard height.
 * **Haptic Feedback**: Keypress vibration support.
-* **Themes**: Themes curated from Borno Keyboard.
-* **Straightforward Settings**: Clean, uncluttered preference screens without confusing toggles.
+* **Dynamic Themes**: Beautiful light, dark, and blurred gradient themes with complete Theme Designer support.
 
 ---
 
@@ -67,9 +67,10 @@ kiebord/
 ├── core/
 │   ├── common/           # Shared models (KeyDef, KeyType, etc.)
 │   ├── data/             # Preferences datastore and layout repositories
-│   └── theme/            # Theme models and theme parser
+│   └── theme/            # Theme models, theme parser, and custom fonts (Bornomala, Scheherazade)
 ├── feature/
-│   └── ime/              # InputMethodService implementation, Compose canvas, and JNI bindings
+│   ├── ime/              # InputMethodService implementation, Compose canvas, and JNI bindings
+│   └── themedesigner/    # Theme studio and interactive color customizer
 ├── native/
 │   └── kiebord-engine/   # Rust native library (spatial model, trie dictionaries, BornoTSF)
 └── docs/                 # Layout and theme development specifications
@@ -80,18 +81,17 @@ kiebord/
 ## Building from Source
 
 ### Prerequisites
-* Android Studio Ladybug / Meerkat or Android SDK command-line tools
 * JDK 17 or 21
-* Android SDK Platform 35
+* Android SDK Platform 35 or 36
 * Android NDK `26.2.11394342`
-* Rust 1.75+ with `cargo-ndk` (only required if modifying native Rust sources)
+* Rust 1.75+ with `cargo-ndk` (for compiling native Rust libraries)
 
 ### Build Commands
 
 Clone the repository:
 ```bash
-git clone https://github.com/JayedAhsan/Kiebord.git
-cd Kiebord
+git clone https://github.com/drutopost/kiebord.git
+cd kiebord
 ```
 
 Build the debug APK:
@@ -99,7 +99,7 @@ Build the debug APK:
 ./gradlew assembleDebug
 ```
 
-Build the release APK:
+Build the signed release APK:
 ```bash
 ./gradlew assembleRelease
 ```
@@ -109,8 +109,7 @@ Build the release Android App Bundle (for Google Play):
 ./gradlew bundleRelease
 ```
 
-Binary dictionary assets (`.dict`) are tracked in the repository. To compile the native Rust engine (`kiebord-engine`) into `libborno_engine.so`:
-
+Native Rust sources (`kiebord-engine`) can be compiled manually to generate `libborno_engine.so`:
 ```bash
 cd native/kiebord-engine
 cargo ndk -t arm64-v8a -t armeabi-v7a -t x86_64 -o ../../feature/ime/src/main/jniLibs build --release
@@ -118,22 +117,29 @@ cargo ndk -t arm64-v8a -t armeabi-v7a -t x86_64 -o ../../feature/ime/src/main/jn
 
 ---
 
-## Support & Sponsor
+## Keystore & Signing Configuration
 
-If you find Kiebord helpful, you can support its ongoing maintenance and development:
-* [Support Kiebord](https://jayed.me/support-kiebord)
+For local development and automated CI workflows, a demo keystore based on company **DrutoPost** is included:
+* **Keystore Location**: `app/drutopost-demo.jks`
+* **Keystore Password**: `drutopost123`
+* **Key Alias**: `drutopost`
+* **Key Password**: `drutopost123`
+
+To build release APKs using custom production keys, specify the following environment variables:
+* `KEYSTORE_FILE`: Absolute path to your `.jks` or `.keystore` file
+* `KEYSTORE_PASSWORD`: Keystore password
+* `KEY_ALIAS`: Key alias
+* `KEY_PASSWORD`: Key password
 
 ---
 
-## Organization & Maintainer
+## Organization & Credits
 
-* **Organization**: [Codepotro](https://codepotro.com)
-* **Lead Maintainer**: [Jayed Ahsan Saad](https://jayed.me) ([@JayedAhsan](https://github.com/JayedAhsan))
+* **Remastered By**: [DrutoPost](https://drutopost.com)
+* **Original Project**: [Kiebord](https://github.com/JayedAhsan/Kiebord) by Jayed Ahsan Saad ([Codepotro](https://codepotro.com))
 
 ---
 
 ## License
 
 This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**. See the `LICENSE` file for the full license text.
-
-All contributions are subject to the [Contributor License Agreement (CLA)](CLA.md), granting **Codepotro** dual-licensing rights for the Borno keyboard ecosystem.

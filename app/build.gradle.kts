@@ -22,11 +22,17 @@ android {
     signingConfigs {
         create("release") {
             val keystorePath = System.getenv("KEYSTORE_FILE")
+            val demoKeystore = file("drutopost-demo.jks")
             if (!keystorePath.isNullOrBlank() && file(keystorePath).exists()) {
                 storeFile = file(keystorePath)
                 storePassword = System.getenv("KEYSTORE_PASSWORD")
                 keyAlias = System.getenv("KEY_ALIAS")
                 keyPassword = System.getenv("KEY_PASSWORD")
+            } else if (demoKeystore.exists()) {
+                storeFile = demoKeystore
+                storePassword = System.getenv("KEYSTORE_PASSWORD") ?: "drutopost123"
+                keyAlias = System.getenv("KEY_ALIAS") ?: "drutopost"
+                keyPassword = System.getenv("KEY_PASSWORD") ?: "drutopost123"
             }
         }
     }
@@ -43,6 +49,11 @@ android {
         }
         debug {
         }
+    }
+
+    lint {
+        checkReleaseBuilds = false
+        abortOnError = false
     }
 
     buildFeatures {

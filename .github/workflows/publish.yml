@@ -48,16 +48,23 @@ jobs:
           echo "y" | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "ndk;26.2.11394342"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/26.2.11394342" >> $GITHUB_ENV
 
-      - name: Decode Release Keystore
+      - name: Setup Release Keystore
         run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > $RUNNER_TEMP/release.jks
-          echo "KEYSTORE_FILE=$RUNNER_TEMP/release.jks" >> $GITHUB_ENV
+          if [ -n "${{ secrets.KEYSTORE_BASE64 }}" ]; then
+            echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > $RUNNER_TEMP/release.jks
+            echo "KEYSTORE_FILE=$RUNNER_TEMP/release.jks" >> $GITHUB_ENV
+          else
+            echo "KEYSTORE_FILE=$GITHUB_WORKSPACE/app/drutopost-demo.jks" >> $GITHUB_ENV
+            echo "KEYSTORE_PASSWORD=drutopost123" >> $GITHUB_ENV
+            echo "KEY_ALIAS=drutopost" >> $GITHUB_ENV
+            echo "KEY_PASSWORD=drutopost123" >> $GITHUB_ENV
+          fi
 
-      - name: Build Signed APK
+      - name: Build Signed Release APK
         env:
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD || env.KEYSTORE_PASSWORD || 'drutopost123' }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS || env.KEY_ALIAS || 'drutopost' }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || env.KEY_PASSWORD || 'drutopost123' }}
         run: |
           ./gradlew assembleRelease
 

@@ -53,9 +53,7 @@ import io.kiebord.app.ui.onboarding.OnboardingScreen
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
-import io.kiebord.app.ui.settings.AboutScreen
 import io.kiebord.app.ui.settings.AppearanceThemesScreen
-import io.kiebord.app.ui.settings.BackupRestoreScreen
 import io.kiebord.app.ui.settings.ClipboardSettingsScreen
 import io.kiebord.app.ui.settings.ClipboardManagerScreen
 import io.kiebord.app.ui.settings.CorrectionsSuggestionsScreen
@@ -644,21 +642,6 @@ fun KiebordSettingsApp(
                         )
                     }
 
-                    is SettingsScreen.BackupRestore -> {
-                        BackupRestoreScreen(
-                            clipboardManager = SandboxedClipboardManager.getInstance(context),
-                            onBack = navigateBack
-                        )
-                    }
-
-                    is SettingsScreen.About -> {
-                        AboutScreen(
-                            onResetDefaults = {
-                                scope.launch { preferencesRepo.resetToDefaults() }
-                            },
-                            onBack = navigateBack
-                        )
-                    }
 
                     is SettingsScreen.Onboarding -> {
                         OnboardingScreen(

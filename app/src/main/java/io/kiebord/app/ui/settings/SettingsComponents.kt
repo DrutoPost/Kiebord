@@ -175,8 +175,6 @@ fun SettingsUnifiedTopBar(
         is SettingsScreen.Clipboard -> "Clipboard"
         is SettingsScreen.ClipboardManager -> "Manage Clips"
         is SettingsScreen.VoiceTyping -> "Voice Typing"
-        is SettingsScreen.BackupRestore -> "Backup & Restore"
-        is SettingsScreen.About -> "About Kiebord"
         is SettingsScreen.Onboarding -> "Setup Wizard"
     }
 
@@ -192,8 +190,6 @@ fun SettingsUnifiedTopBar(
         is SettingsScreen.Clipboard -> "Clipboard preferences & cleanup"
         is SettingsScreen.ClipboardManager -> "Search, filter & organize clips"
         is SettingsScreen.VoiceTyping -> "Speech recognition & providers"
-        is SettingsScreen.BackupRestore -> "Import, export & data migration"
-        is SettingsScreen.About -> null
         is SettingsScreen.Onboarding -> "Welcome to Kiebord"
     }
 

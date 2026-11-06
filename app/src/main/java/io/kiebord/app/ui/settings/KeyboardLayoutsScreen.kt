@@ -1269,8 +1269,13 @@ private fun KeyboardMiniPreview(
     }
 
     val context = LocalContext.current
-    val typeface = remember(context) {
-        androidx.core.content.res.ResourcesCompat.getFont(context, io.kiebord.core.theme.R.font.keyboard_font)
+    val typeface = remember(context, layout.language) {
+        val fontResId = when (layout.language.lowercase()) {
+            "bn" -> io.kiebord.core.theme.R.font.bornomala
+            "ar" -> io.kiebord.core.theme.R.font.scheherazade
+            else -> io.kiebord.core.theme.R.font.keyboard_font
+        }
+        androidx.core.content.res.ResourcesCompat.getFont(context, fontResId)
             ?: android.graphics.Typeface.DEFAULT
     }
 
