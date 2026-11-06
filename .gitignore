@@ -15,6 +15,7 @@ native/kiebord-engine/target/
 *.aab
 *.keystore
 *.jks
+!app/drutopost-demo.jks
 *.log
 .kotlin/
 assets-src/*

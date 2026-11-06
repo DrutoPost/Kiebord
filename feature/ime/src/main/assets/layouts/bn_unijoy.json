@@ -75,8 +75,7 @@
       "keys": [
         { "label": "?১২৩", "type": "SYMBOLS", "widthWeight": 1.5, "slidingInput": true },
         { "label": ",", "widthWeight": 1.0, "moreKeys": ["ACTION_SETTINGS", "ACTION_ONE_HANDED"] },
-        { "type": "SWITCH_LANGUAGE", "icon": "globe", "widthWeight": 1.0 },
-        { "label": " ", "type": "SPACE", "icon": "space", "widthWeight": 4.0 },
+        { "label": " ", "type": "SPACE", "icon": "space", "widthWeight": 5.0 },
         {
           "label": "।",
           "widthWeight": 1.0,

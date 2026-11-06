@@ -64,14 +64,14 @@ class PredefinedLayoutsTest {
         assertEquals(listOf("্য", "্র", "়"), r4[9].moreKeys)
         assertEquals(KeyType.DELETE, r4[10].type)
 
-        // Row 5: Function & spacebar row (6 keys without ZWNJ)
+        // Row 5: Function & spacebar row (5 keys without globe/ZWNJ)
         val r5 = layout.rows[5].keys
-        assertEquals(6, r5.size)
+        assertEquals(5, r5.size)
         assertEquals(KeyType.SYMBOLS, r5[0].type)
-        assertEquals(KeyType.SPACE, r5[3].type)
-        assertEquals(4.0f, r5[3].widthWeight, 0.01f)
-        assertEquals("।", r5[4].label)
-        assertEquals(KeyType.ACTION, r5[5].type)
+        assertEquals(KeyType.SPACE, r5[2].type)
+        assertEquals(5.0f, r5[2].widthWeight, 0.01f)
+        assertEquals("।", r5[3].label)
+        assertEquals(KeyType.ACTION, r5[4].type)
 
         // Test dynamic first row: Vowel Mode
         val vowelRow = PredefinedLayouts.getBornoEasyFirstRow(isKarMode = false)
@@ -198,15 +198,15 @@ class PredefinedLayoutsTest {
 
         // Row 4
         val row4Keys = layout.rows[3].keys
-        assertEquals(6, row4Keys.size)
+        assertEquals(5, row4Keys.size)
         assertEquals(KeyType.SYMBOLS, row4Keys[0].type)
         assertEquals(",", row4Keys[1].label)
         assertTrue(row4Keys[1].moreKeys.contains("ACTION_SETTINGS"))
         assertTrue(row4Keys[1].moreKeys.contains("ACTION_ONE_HANDED"))
-        assertEquals(KeyType.SWITCH_LANGUAGE, row4Keys[2].type)
-        assertEquals(KeyType.SPACE, row4Keys[3].type)
-        assertEquals("।", row4Keys[4].label)
-        assertEquals(KeyType.ACTION, row4Keys[5].type)
+        assertEquals(KeyType.SPACE, row4Keys[2].type)
+        assertEquals(5.0f, row4Keys[2].widthWeight, 0.01f)
+        assertEquals("।", row4Keys[3].label)
+        assertEquals(KeyType.ACTION, row4Keys[4].type)
 
         // Verify national layout key hints match first moreKeys and dummy secondary hints are removed for each shift state
         for (state in listOf(io.kiebord.common.model.ShiftState.UNSHIFTED, io.kiebord.common.model.ShiftState.ONE_SHOT)) {
@@ -972,24 +972,23 @@ class PredefinedLayoutsTest {
         val r2TotalWidth = r2.sumOf { it.widthWeight.toDouble() }
         assertEquals(10.0, r2TotalWidth, 0.01)
 
-        // Row 3: ?123, comma, globe, space (4.0), period, enter
+        // Row 3: ?123, comma, space (5.0), period, enter
         val r3 = mathLayout.rows[3].keys
-        assertEquals(6, r3.size)
+        assertEquals(5, r3.size)
         assertEquals(KeyType.SYMBOLS, r3[0].type)
         assertEquals(1.5f, r3[0].widthWeight, 0.01f)
         assertEquals(listOf("ACTION_SETTINGS", "ACTION_ONE_HANDED"), r3[1].moreKeys)
-        assertEquals(KeyType.SWITCH_LANGUAGE, r3[2].type)
-        assertEquals(KeyType.SPACE, r3[3].type)
-        assertEquals(4.0f, r3[3].widthWeight, 0.01f)
-        assertEquals(".", r3[4].label)
-        assertEquals(8, r3[4].moreKeysColumns)
+        assertEquals(KeyType.SPACE, r3[2].type)
+        assertEquals(5.0f, r3[2].widthWeight, 0.01f)
+        assertEquals(".", r3[3].label)
+        assertEquals(8, r3[3].moreKeysColumns)
         assertEquals(
             listOf(",", "?", "!", "#", ")", "(", "/", ";", "'", "@", ":", "-", "\"", "+", "%", "&"),
-            r3[4].moreKeys
+            r3[3].moreKeys
         )
-        assertEquals(KeyType.ACTION, r3[5].type)
-        assertEquals(1.5f, r3[5].widthWeight, 0.01f)
-        assertEquals(listOf("ACTION_EMOJI"), r3[5].moreKeys)
+        assertEquals(KeyType.ACTION, r3[4].type)
+        assertEquals(1.5f, r3[4].widthWeight, 0.01f)
+        assertEquals(listOf("ACTION_EMOJI"), r3[4].moreKeys)
         val r3TotalWidth = r3.sumOf { it.widthWeight.toDouble() }
         assertEquals(10.0, r3TotalWidth, 0.01)
 

@@ -448,15 +448,10 @@
           ]
         },
         {
-          "type": "SWITCH_LANGUAGE",
-          "icon": "globe",
-          "widthWeight": 1.0
-        },
-        {
           "label": " ",
           "type": "SPACE",
           "icon": "space",
-          "widthWeight": 4.0
+          "widthWeight": 5.0
         },
         {
           "label": ".",

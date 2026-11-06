@@ -292,8 +292,7 @@ object PredefinedLayouts {
                 listOf(
                     KeyDef("?123", type = KeyType.SYMBOLS, widthWeight = 1.5f, slidingInput = true),
                     KeyDef(",", widthWeight = 1.0f, moreKeys = listOf("ACTION_SETTINGS", "ACTION_ONE_HANDED")),
-                    KeyDef(type = KeyType.SWITCH_LANGUAGE, icon = "globe", widthWeight = 1.0f),
-                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 4.0f),
+                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 5.0f),
                     KeyDef(".", widthWeight = 1.0f, moreKeysColumns = 8, moreKeys = listOf(",", "?", "!", "#", ")", "(", "/", ";", "'", "@", ":", "-", "\"", "+", "%", "&")),
                     KeyDef(type = KeyType.ACTION, icon = "enter", widthWeight = 1.5f, moreKeys = listOf("ACTION_EMOJI"))
                 )
@@ -420,8 +419,7 @@ object PredefinedLayouts {
                 listOf(
                     KeyDef("?১২৩", type = KeyType.SYMBOLS, widthWeight = 1.5f, slidingInput = true),
                     KeyDef(",", widthWeight = 1.0f, moreKeys = listOf("ACTION_SETTINGS", "ACTION_ONE_HANDED")),
-                    KeyDef(type = KeyType.SWITCH_LANGUAGE, icon = "globe", widthWeight = 1.0f),
-                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 4.0f),
+                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 5.0f),
                     KeyDef("।", widthWeight = 1.0f, moreKeysColumns = 9, moreKeys = listOf(".", ",", "?", "!", "#", ")", "(", "/", ";", "'", "@", ":", "-", "\"", "+", "%", "&")),
                     KeyDef(type = KeyType.ACTION, icon = "enter", widthWeight = 1.5f, moreKeys = listOf("ACTION_EMOJI"))
                 )
@@ -485,8 +483,7 @@ object PredefinedLayouts {
                 listOf(
                     KeyDef("?১২৩", type = KeyType.SYMBOLS, widthWeight = 1.5f, slidingInput = true),
                     KeyDef(",", widthWeight = 1.0f, moreKeys = listOf("ACTION_SETTINGS", "ACTION_ONE_HANDED")),
-                    KeyDef(type = KeyType.SWITCH_LANGUAGE, icon = "globe", widthWeight = 1.0f),
-                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 4.0f),
+                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 5.0f),
                     KeyDef("।", widthWeight = 1.0f, moreKeysColumns = 9, moreKeys = listOf(".", ",", "?", "!", "#", ")", "(", "/", ";", "'", "@", ":", "-", "\"", "+", "%", "&")),
                     KeyDef(type = KeyType.ACTION, icon = "enter", widthWeight = 1.5f, moreKeys = listOf("ACTION_EMOJI"))
                 )
@@ -555,8 +552,7 @@ object PredefinedLayouts {
                 listOf(
                     KeyDef("?১২৩", type = KeyType.SYMBOLS, widthWeight = 1.5f, slidingInput = true),
                     KeyDef(",", widthWeight = 1.0f, moreKeys = listOf("ACTION_SETTINGS", "ACTION_ONE_HANDED")),
-                    KeyDef(type = KeyType.SWITCH_LANGUAGE, icon = "globe", widthWeight = 1.0f),
-                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 4.0f),
+                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 5.0f),
                     KeyDef("।", widthWeight = 1.0f, moreKeysColumns = 9, moreKeys = listOf(".", ",", "?", "!", "#", ")", "(", "/", ";", "'", "@", ":", "-", "\"", "+", "%", "&")),
                     KeyDef(type = KeyType.ACTION, icon = "enter", widthWeight = 1.5f, moreKeys = listOf("ACTION_EMOJI"))
                 )
@@ -621,8 +617,7 @@ object PredefinedLayouts {
                 listOf(
                     KeyDef("?১২৩", type = KeyType.SYMBOLS, widthWeight = 1.5f, slidingInput = true),
                     KeyDef(",", widthWeight = 1.0f, moreKeys = listOf("ACTION_SETTINGS", "ACTION_ONE_HANDED")),
-                    KeyDef(type = KeyType.SWITCH_LANGUAGE, icon = "globe", widthWeight = 1.0f),
-                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 4.0f),
+                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 5.0f),
                     KeyDef("।", widthWeight = 1.0f, moreKeysColumns = 9, moreKeys = listOf(".", ",", "?", "!", "#", ")", "(", "/", ";", "'", "@", ":", "-", "\"", "+", "%", "&")),
                     KeyDef(type = KeyType.ACTION, icon = "enter", widthWeight = 1.5f, moreKeys = listOf("ACTION_EMOJI"))
                 )
@@ -779,8 +774,7 @@ object PredefinedLayouts {
                 listOf(
                     KeyDef("ABC", type = KeyType.SYMBOLS, widthWeight = 1.5f),
                     KeyDef(",", widthWeight = 1.0f, moreKeys = listOf("ACTION_SETTINGS", "ACTION_ONE_HANDED")),
-                    KeyDef(type = KeyType.SWITCH_LANGUAGE, icon = "globe", widthWeight = 1.0f),
-                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 4.0f),
+                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 5.0f),
                     KeyDef("।", widthWeight = 1.0f, moreKeys = listOf(".", "…")),
                     KeyDef(type = KeyType.ACTION, icon = "enter", widthWeight = 1.5f, moreKeys = listOf("ACTION_EMOJI"))
                 )
@@ -856,8 +850,7 @@ object PredefinedLayouts {
                 listOf(
                     KeyDef("ABC", type = KeyType.SYMBOLS, widthWeight = 1.5f),
                     KeyDef(",", widthWeight = 1.0f, moreKeys = listOf("ACTION_SETTINGS", "ACTION_ONE_HANDED")),
-                    KeyDef(type = KeyType.SWITCH_LANGUAGE, icon = "globe", widthWeight = 1.0f),
-                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 4.0f),
+                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 5.0f),
                     KeyDef("।", widthWeight = 1.0f, moreKeys = listOf(".", "…")),
                     KeyDef(type = KeyType.ACTION, icon = "enter", widthWeight = 1.5f, moreKeys = listOf("ACTION_EMOJI"))
                 )
@@ -915,8 +908,7 @@ object PredefinedLayouts {
                 listOf(
                     KeyDef("?১২৩", type = KeyType.SYMBOLS, widthWeight = 1.5f, slidingInput = true),
                     KeyDef(",", widthWeight = 1.0f, moreKeys = listOf("ACTION_SETTINGS", "ACTION_ONE_HANDED")),
-                    KeyDef(type = KeyType.SWITCH_LANGUAGE, icon = "globe", widthWeight = 1.0f),
-                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 4.0f),
+                    KeyDef(" ", type = KeyType.SPACE, icon = "space", widthWeight = 5.0f),
                     KeyDef("।", widthWeight = 1.0f, moreKeysColumns = 9, moreKeys = listOf(".", ",", "?", "!", "#", ")", "(", "/", ";", "'", "@", ":", "-", "\"", "+", "%", "&")),
                     KeyDef(type = KeyType.ACTION, icon = "enter", widthWeight = 1.5f, moreKeys = listOf("ACTION_EMOJI"))
                 )
