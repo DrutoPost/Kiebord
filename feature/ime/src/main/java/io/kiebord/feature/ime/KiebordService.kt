@@ -363,7 +363,11 @@ class KiebordService : InputMethodService() {
                 layoutRepo.getAvailableLayouts().map { it.id }.toSet()
             }
 
-            KiebordTheme(colorScheme = colorScheme) {
+            val activeFontFamily = remember(activeLayout.language) {
+                io.kiebord.theme.getFontFamilyForLanguage(activeLayout.language)
+            }
+
+            KiebordTheme(colorScheme = colorScheme, fontFamily = activeFontFamily) {
                 KeyboardRootView(
                     layout = activeLayout,
                     primaryAlphaLayout = primaryAlphaLayout,

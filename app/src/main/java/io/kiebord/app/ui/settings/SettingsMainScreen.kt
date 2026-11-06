@@ -28,7 +28,6 @@ import androidx.compose.material.icons.outlined.Mic
 import androidx.compose.material.icons.automirrored.outlined.MenuBook
 import androidx.compose.material.icons.outlined.Palette
 import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material.icons.outlined.SettingsBackupRestore
 import androidx.compose.material.icons.outlined.Spellcheck
 import androidx.compose.material.icons.outlined.Gesture
 import androidx.compose.material.icons.outlined.SwapHoriz
@@ -260,26 +259,8 @@ fun SettingsMainScreen(
             SettingsNavigationItem(
                 title = "Personal Dictionary",
                 icon = Icons.AutoMirrored.Outlined.MenuBook,
-                position = GroupPosition.MIDDLE,
-                onClick = { onNavigate(SettingsScreen.PersonalDictionary) }
-            )
-
-            SettingsNavigationItem(
-                title = "Backup & Restore",
-                icon = Icons.Outlined.SettingsBackupRestore,
                 position = GroupPosition.BOTTOM,
-                onClick = { onNavigate(SettingsScreen.BackupRestore) }
-            )
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        SettingsGroup {
-            SettingsNavigationItem(
-                title = "About Kiebord",
-                iconResId = R.drawable.ic_launcher_foreground,
-                position = GroupPosition.ALONE,
-                onClick = { onNavigate(SettingsScreen.About) }
+                onClick = { onNavigate(SettingsScreen.PersonalDictionary) }
             )
         }
 

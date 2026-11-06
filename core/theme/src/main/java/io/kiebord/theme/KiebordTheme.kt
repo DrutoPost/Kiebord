@@ -18,6 +18,28 @@ val KeyboardFontFamily = FontFamily(
     Font(R.font.keyboard_font, FontWeight.Bold)
 )
 
+val BornomalaFontFamily = FontFamily(
+    Font(R.font.bornomala, FontWeight.Normal),
+    Font(R.font.bornomala, FontWeight.Medium),
+    Font(R.font.bornomala, FontWeight.SemiBold),
+    Font(R.font.bornomala, FontWeight.Bold)
+)
+
+val ScheherazadeFontFamily = FontFamily(
+    Font(R.font.scheherazade, FontWeight.Normal),
+    Font(R.font.scheherazade, FontWeight.Medium),
+    Font(R.font.scheherazade, FontWeight.SemiBold),
+    Font(R.font.scheherazade, FontWeight.Bold)
+)
+
+fun getFontFamilyForLanguage(language: String?): FontFamily {
+    return when (language?.lowercase()) {
+        "bn" -> BornomalaFontFamily
+        "ar" -> ScheherazadeFontFamily
+        else -> KeyboardFontFamily
+    }
+}
+
 val KiebordTypography = androidx.compose.material3.Typography().let { defaultTypography ->
     androidx.compose.material3.Typography(
         displayLarge = defaultTypography.displayLarge.copy(fontFamily = KeyboardFontFamily),
